@@ -57,16 +57,16 @@ export default function Home() {
           <h1 className='text-4xl text-center lg:text-5xl font-medium'>{t('home.title')}</h1>
         </div>
         <p className='text-center text-2xl'>{t('home.description')}</p>
-        <div className='w-full'>
+        <div className='w-full px-5 sm:p-0'>
           <form onSubmit={handleSubmit(onSubmit)} className='flex items-center'>
             <input
               {...register('email')}
               type='email'
               placeholder={t('home.email')}
               required
-              className='flex-grow text-black p-2 rounded-l-lg h-12'
+              className='flex-grow text-black p-2 rounded-l-lg h-12 text-xs sm:text-sm'
             />
-            <button type='submit' className='px-4 bg-blue-500 hover:bg-blue-300 text-white font-bold rounded-r-lg h-12'>
+            <button type='submit' className='px-4 bg-blue-500 hover:bg-blue-300 text-white font-bold rounded-r-lg h-12 text-xs sm:text-sm'>
               {t('home.button')}
             </button>
           </form>
