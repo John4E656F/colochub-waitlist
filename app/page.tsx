@@ -43,7 +43,7 @@ export default function Home() {
   };
 
   return (
-    <div className='flex flex-col lg:flex-row justify-center items-center h-screen text-white font-white'>
+    <div className='flex flex-col lg:flex-row justify-center items-center h-screen text-white font-white '>
       <div className='flex flex-col items-center max-w-lg gap-5 '>
         <div className='flex flex-col items-center gap-1'>
           <h2 className='text-brand-primary text-3xl lg:text-4xl font-medium'>ColocHub</h2>
@@ -58,9 +58,7 @@ export default function Home() {
         </form>
         {message && <p className='text-center mt-4'>{message}</p>}
       </div>
-      <div className='max-w-lg'>
-        <Image src={waitlistImage} width={500} height={500} alt='Picture of the author' />
-      </div>
+      <Image src={waitlistImage} alt='Picture of the author' className='w-auto max-w-sm h-auto max-h-lg object-fill' />
     </div>
   );
 }
