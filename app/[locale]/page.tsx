@@ -35,11 +35,12 @@ export default function Home() {
       body: JSON.stringify(data),
     });
     const responseData = await response.json();
+    console.log(responseData);
 
     if (response.ok) {
       setMessage(t('home.emailSuccess')); // Success message from server
     } else {
-      if (responseData.message === 'Exist') {
+      if (responseData.error === 'Exist') {
         setMessage(t('home.emailAlreadyExist'));
       } else {
         setMessage(t('home.emailFailed'));
