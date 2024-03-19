@@ -1,0 +1,15 @@
+{
+  "app": {
+    "home": {
+      "metadataDescription": "Gelijkgestemden met elkaar in contact brengen!",
+      "title": "Word lid van onze exclusieve wachtlijst",
+      "description": "Wees de eerste die het weet wanneer we lanceren en krijg vroegtijdige toegang tot ons baanbrekende platform.",
+      "email": "Voer uw e-mailadres in",
+      "button": "Word lid van de wachtlijst",
+      "emailAlreadyExist": "Dit e-mailadres staat al op de wachtlijst.",
+      "emailSuccess": "E-mail toegevoegd aan de wachtlijst!",
+      "emailFailed": "Het is niet gelukt het e-mailadres toe te voegen. Probeer het opnieuw...",
+      "alt": "Colochub image, Bouwen aan een beter coliving platform en gelijkgestemden verbinden!"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "app": {
+    "home": {
+      "metadataDescription": "Mettre en relation des personnes partageant le même état d'esprit!",
+      "title": "Rejoignez notre liste d'attente exclusive",
+      "description": "Soyez le premier à être informé de notre lancement et bénéficiez d'un accès anticipé à notre plateforme révolutionnaire.",
+      "email": "Saisissez votre adresse e-mail",
+      "button": "Rejoindre la liste d'attente",
+      "emailAlreadyExist": "Cet email est déjà sur la liste d'attente.",
+      "emailSuccess": "Email ajouté à la liste d'attente!",
+      "emailFailed": "L'email n'a pas été ajouté, veuillez réessayer...",
+      "alt": "Colochub image, Construire une meilleure plateforme de colocation et connecter les personnes qui partagent les mêmes idées."
+    }
+  }
+}

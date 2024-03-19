@@ -5,8 +5,10 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { joinWaitlistFormResolver, type JoinWaitlistFormInputs } from './joinWaitlistFormResolver';
 import waitlistImage from '@/assets/waitlist.svg';
 import logo from '@/assets/logo.svg';
+import { useTranslations } from 'next-intl';
 
 export default function Home() {
+  const t = useTranslations('app');
   const [message, setMessage] = useState<string | null>(null);
   const {
     register,
@@ -35,10 +37,13 @@ export default function Home() {
     const responseData = await response.json();
 
     if (response.ok) {
-      setMessage(responseData.message); // Success message from server
+      setMessage(t('home.emailSuccess')); // Success message from server
     } else {
-      // Set error message from server, or a default error message if none is provided
-      setMessage(responseData.error || 'An unexpected error occurred. Please try again.');
+      if (responseData.message === 'Exist') {
+        setMessage(t('home.emailAlreadyExist'));
+      } else {
+        setMessage(t('home.emailFailed'));
+      }
     }
 
     reset(); // Reset form fields after submission
@@ -49,23 +54,30 @@ export default function Home() {
       <div className='flex flex-col items-center max-w-lg gap-5 '>
         <div className='flex flex-col items-center gap-1'>
           <Image src={logo} alt='Picture of the author' className='w-auto max-w-sm h-auto max-h-lg object-fill ' />
-          <h1 className='text-4xl text-center lg:text-5xl font-medium'>Join Our Exclusive Waitlist</h1>
+          <h1 className='text-4xl text-center lg:text-5xl font-medium'>{t('home.title')}</h1>
         </div>
-        <p className='text-center text-2xl'>Be the first to know when we launch and gain early access to our groundbreaking platform.</p>
-        <div>
+        <p className='text-center text-2xl'>{t('home.description')}</p>
+        <div className='w-full'>
           <form onSubmit={handleSubmit(onSubmit)} className='flex items-center'>
-            <input {...register('email')} type='email' placeholder='Enter your email' required className='text-black p-2 rounded-l-lg ' />
-            <button type='submit' className='p-2 bg-blue-500 hover:bg-blue-300 text-white font-bold rounded-r-lg'>
-              Join Waitlist
+            <input
+              {...register('email')}
+              type='email'
+              placeholder={t('home.email')}
+              required
+              className='flex-grow text-black p-2 rounded-l-lg h-12'
+            />
+            <button type='submit' className='px-4 bg-blue-500 hover:bg-blue-300 text-white font-bold rounded-r-lg h-12'>
+              {t('home.button')}
             </button>
           </form>
           {message && <p className='text-center mt-4'>{message}</p>}
         </div>
+
         {/* <div>
           <p>Choose your language:</p>
         </div> */}
       </div>
-      <Image src={waitlistImage} alt='Picture of the author' className='w-auto max-w-sm h-auto max-h-lg object-fill' />
+      <Image src={waitlistImage} alt={t('home.alt')} className='w-auto max-w-sm h-auto max-h-lg object-fill' />
     </div>
   );
 }

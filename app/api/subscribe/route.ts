@@ -14,7 +14,7 @@ export async function POST(req: Request) {
 
     if (existingEmail) {
       // If email exists, return a message indicating it's already registered
-      return new NextResponse(JSON.stringify({ error: 'This email is already on the waitlist.' }), {
+      return new NextResponse(JSON.stringify({ error: 'Exist' }), {
         status: 409, // HTTP status code 409 Conflict is often used in cases of resource conflict
         headers: {
           'Content-Type': 'application/json',

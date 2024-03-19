@@ -1,0 +1,15 @@
+{
+  "app": {
+    "home": {
+      "metadataDescription": "Connecting like minded people!",
+      "title": "Join Our Exclusive Waitlist",
+      "description": "Be the first to know when we launch and gain early access to our groundbreaking platform.",
+      "email": "Enter your email",
+      "button": "Join the waitlist",
+      "emailAlreadyExist": "This email is already on the waitlist.",
+      "emailSuccess": "Email added to the waitlist!",
+      "emailFailed": "Failed to add the email, Please try again...",
+      "alt": "Colochub image, Building a better coliving platform and connect like minded people!"
+    }
+  }
+}
