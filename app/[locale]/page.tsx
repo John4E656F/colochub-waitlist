@@ -35,7 +35,6 @@ export default function Home() {
       body: JSON.stringify(data),
     });
     const responseData = await response.json();
-    console.log(responseData);
 
     if (response.ok) {
       setMessage(t('home.emailSuccess')); // Success message from server
