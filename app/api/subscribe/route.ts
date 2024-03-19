@@ -4,15 +4,25 @@ import clientPromise from '@/lib/mongodb'; // Adjust the path as necessary
 import { NextResponse } from 'next/server';
 
 export async function POST(req: Request) {
-  // Use the "Production" database
   const client = await clientPromise;
   const db = client.db('Production');
-
-  // Parse the request body to JSON
   const { email } = await req.json();
 
   try {
-    // Insert the email into the "Waitlist" collection
+    // Check if the email already exists in the "Waitlist" collection
+    const existingEmail = await db.collection('Waitlist').findOne({ email });
+
+    if (existingEmail) {
+      // If email exists, return a message indicating it's already registered
+      return new NextResponse(JSON.stringify({ error: 'This email is already on the waitlist.' }), {
+        status: 409, // HTTP status code 409 Conflict is often used in cases of resource conflict
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+    }
+
+    // If email does not exist, insert it into the collection
     await db.collection('Waitlist').insertOne({ email });
 
     // Return a success response
@@ -24,6 +34,7 @@ export async function POST(req: Request) {
     });
   } catch (error) {
     console.error(error);
+    // Return a generic error response
     return new NextResponse(JSON.stringify({ error: 'Failed to add the email' }), {
       status: 500,
       headers: {
